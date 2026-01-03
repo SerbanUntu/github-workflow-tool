@@ -1,7 +1,5 @@
 plugins {
-	java
-	id("org.springframework.boot") version "3.5.9"
-	id("io.spring.dependency-management") version "1.1.7"
+	application
 }
 
 group = "com.example"
@@ -18,19 +16,9 @@ repositories {
 	mavenCentral()
 }
 
-extra["springShellVersion"] = "3.4.1"
-
 dependencies {
-	implementation("org.springframework.shell:spring-shell-starter")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.springframework.shell:spring-shell-starter-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-}
-
-dependencyManagement {
-	imports {
-		mavenBom("org.springframework.shell:spring-shell-dependencies:${property("springShellVersion")}")
-	}
+	testImplementation(libs.junit.jupiter)
+	testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 tasks.withType<Test> {
