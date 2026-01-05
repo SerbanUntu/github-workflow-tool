@@ -12,6 +12,6 @@ public record AccessToken(String token) {
      */
     @Override
     public String toString() {
-        return this.token;
+        return "REDACTED_ACCESS_TOKEN";
     }
 }

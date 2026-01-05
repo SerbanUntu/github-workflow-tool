@@ -20,6 +20,7 @@ public class GithubWorkflowToolApplication {
             System.out.println(ghClient.fetchData());
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            System.exit(1);
         }
     }
 }

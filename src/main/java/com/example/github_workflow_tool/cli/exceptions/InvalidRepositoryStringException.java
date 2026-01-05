@@ -1,12 +1,12 @@
 package com.example.github_workflow_tool.cli.exceptions;
 
 /**
- * Thrown when the user enters less than two arguments in the command line.
+ * Thrown when the user enters a repository string that doesn't have the owner/repo format.
  */
 public class InvalidRepositoryStringException extends CLIException {
     public InvalidRepositoryStringException(String repositoryString) {
         super(
-                "The owner/repo pair you provided is not a valid, or you do not have read access for that repository: " +
+                "The owner/repo pair you provided is not valid, or you do not have read access for that repository: " +
                         repositoryString
         );
     }
