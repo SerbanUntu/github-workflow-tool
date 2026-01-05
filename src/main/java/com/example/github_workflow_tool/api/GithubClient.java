@@ -18,9 +18,22 @@ public abstract class GithubClient {
 
     protected final Repository repository;
     protected final HttpClient client;
+
+    /**
+     * The route shared by all requests. Contains the base URL, the owner, and the repository name
+     */
     protected final String baseRoute;
+
+    /**
+     * The headers needed when sending requests to the GitHub API, in the form: header vale header value
+     */
     protected final String[] headers;
 
+    /**
+     * Throws a CLI exception if the API returns a 4xx status code due to incorrect parameters passed to the CLI
+     * @param response The HTTP Response object
+     * @throws CLIException If the repository is not found or the access token is invalid
+     */
     protected void checkResponse(HttpResponse<String> response) throws CLIException {
         switch (response.statusCode()) {
             case 401:

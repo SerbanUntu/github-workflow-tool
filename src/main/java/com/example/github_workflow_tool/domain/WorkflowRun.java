@@ -2,6 +2,9 @@ package com.example.github_workflow_tool.domain;
 
 import java.util.Date;
 
+/**
+ * The execution state of a GitHub workflow
+ */
 public record WorkflowRun(
         long id,
         long workflowId,

@@ -8,6 +8,9 @@ import com.example.github_workflow_tool.domain.WorkflowRun;
 
 import java.util.*;
 
+/**
+ * Abstraction around multiple API calls. Exposes a method to map workflow data to respective job data.
+ */
 public class WorkflowService {
 
     private final JobClient jobClient;
@@ -18,6 +21,14 @@ public class WorkflowService {
         this.workflowClient = new WorkflowClient(repository, accessToken);
     }
 
+    /**
+     * Returns a mapping of workflow runs to their respective job runs for the provided GitHub repository.
+     * Makes multiple API requests under the hood.
+     *
+     * @return A mapping of workflow runs to their respective job runs.
+     * @throws APIException If a network fault occurs.
+     * @throws CLIException If the repository name or access token provided by the user are invalid.
+     */
     public Map<WorkflowRun, List<Job>> queryApi() throws APIException, CLIException {
         Map<WorkflowRun, List<Job>> result = new HashMap<>();
         WorkflowResponse workflowResponse = this.workflowClient.fetchData();

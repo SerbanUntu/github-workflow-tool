@@ -10,6 +10,9 @@ import java.net.URISyntaxException;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+/**
+ * The client responsible for making requests to the "List workflow runs for a repository" route.
+ */
 public class WorkflowClient extends GithubClient {
 
     private static final String route = "/actions/runs";
@@ -29,6 +32,12 @@ public class WorkflowClient extends GithubClient {
         }
     }
 
+    /**
+     * Makes a request to the workflows route and returns the parsed data.
+     * @return The response from the API, parsed as a value object.
+     * @throws APIException If a network fault occurs.
+     * @throws CLIException If the repository name or access token provided by the user are invalid.
+     */
     public WorkflowResponse fetchData() throws APIException, CLIException {
         HttpResponse<String> response;
         try {
