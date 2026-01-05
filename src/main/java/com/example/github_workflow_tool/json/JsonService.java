@@ -12,7 +12,7 @@ public class JsonService {
 
     public JsonService() {
         this.gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssX")
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
     }
