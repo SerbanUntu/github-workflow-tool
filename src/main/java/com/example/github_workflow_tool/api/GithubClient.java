@@ -23,9 +23,11 @@ public class GithubClient {
         client = HttpClient.newHttpClient();
         request = HttpRequest.newBuilder()
                 .uri(new URI("https://api.github.com/repos/" +
+                        repository.getOwner() +
+                        "/" +
                         repository.getRepository() +
                         "/actions/runs"))
-                .headers("X-GitHub-Api-Version", API_VERSION, "Authorization", "Bearer " + token.getToken())
+                .headers("X-GitHub-Api-Version", API_VERSION, "Authorization", "Bearer " + token.token())
                 .build();
     }
 

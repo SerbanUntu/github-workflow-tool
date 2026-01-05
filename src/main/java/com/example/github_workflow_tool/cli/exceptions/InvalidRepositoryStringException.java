@@ -1,12 +1,13 @@
 package com.example.github_workflow_tool.cli.exceptions;
 
-import com.example.github_workflow_tool.domain.Repository;
-
+/**
+ * Thrown when the user enters less than two arguments in the command line.
+ */
 public class InvalidRepositoryStringException extends CLIException {
-    public InvalidRepositoryStringException(Repository repository) {
+    public InvalidRepositoryStringException(String repositoryString) {
         super(
-                "The repository name you provided is not a valid GitHub repository, or it does not belong to your account: " +
-                        repository.toString()
+                "The owner/repo pair you provided is not a valid, or you do not have read access for that repository: " +
+                        repositoryString
         );
     }
 }

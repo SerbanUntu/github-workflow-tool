@@ -7,7 +7,6 @@ import com.example.github_workflow_tool.cli.exceptions.TooManyArgumentsException
 import com.example.github_workflow_tool.domain.AccessToken;
 import com.example.github_workflow_tool.domain.Repository;
 import org.junit.jupiter.api.Test;
-
 public class ArgumentParserTests {
 
     private final ArgumentParser sut = new ArgumentParser();
@@ -31,9 +30,9 @@ public class ArgumentParserTests {
 
     @Test
     public void parseTwoArgumentsCorrectlyTest() {
-        String[] args = {"repoName", "accessToken"};
+        String[] args = {"owner/repo", "accessToken"};
         CLIArguments expected = new CLIArguments(
-                new Repository("repoName"),
+                new Repository("owner/repo"),
                 new AccessToken("accessToken")
         );
         assertEquals(expected, sut.parse(args));

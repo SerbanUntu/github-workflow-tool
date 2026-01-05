@@ -6,6 +6,10 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 description = "Queries the GitHub workflows of a repository and displays live information."
 
+application {
+	mainClass.set("com.example.github_workflow_tool.GithubWorkflowToolApplication")
+}
+
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
